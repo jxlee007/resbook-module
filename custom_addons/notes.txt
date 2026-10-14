@@ -1,0 +1,10 @@
+
+
+have 3.12 py venv
+py -3.12 -m venv .venv
+
+have postgres sql
+
+py essentials - handle data, web req and crypto
+pip install psycopg2-binary lxml num2words pillow psutil pydot pyopenssl pyserial python-dateutil pytz pyusb reportlab requests vobject werkzeug zint
+
