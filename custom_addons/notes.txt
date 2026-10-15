@@ -1,4 +1,45 @@
+Here is the complete step-by-step task list for building your **Resource Booking MVP** for the Odoo Flux 2026 hackathon, broken down into manageable milestones:
 
+1. **Hour 1: Environment Setup & Module Scaffold:** Prerequisites & Initialization.
+* Install Python 3.12, PostgreSQL, and Odoo 18 core dependencies via `pip`.
+* Clone your forked repository and verify the folder structure (`odoo` core + `custom_addons/resource_booking`).
+* Complete and verify `__manifest__.py` and `__init__.py` configuration files.
+* *Verification:* Run Odoo and check that `http://localhost:8069` loads successfully.
+
+
+2. **Hours 2–3: Python Models & Relationships:** Backend Logic.
+* Finalize `resource.booking.slot` model with datetime fields, pricing, and state selection.
+* Create the `resource.booking` model linked to native `res.partner` (customers) and slots using Many2one relationships.
+* Implement database-level uniqueness constraints and Python validation to prevent double-booking safely under concurrent requests.
+* *Verification:* Create sample booking slot records directly from the Python shell or Odoo UI.
+
+
+3. **Hours 4–5: Views, Menus & Access Rights:** UI & Permissions.
+* Create CSV security access rights (`ir.model.access.csv`) to grant proper permissions for admin and user roles.
+* Build native XML form, list, and Kanban views for both slots and bookings without custom CSS.
+* Define action windows and top-level menus to navigate between slots and bookings.
+* *Verification:* Log into Odoo and interact with the new custom app menus and views.
+
+
+4. **Hour 6: Booking Workflow & Revenue Reporting:** Business Intelligence.
+* Implement the booking action workflow (changing slot states from available to booked upon reservation).
+* Add computed fields or list aggregations to display total booking revenue for the admin dashboard.
+* *Verification:* Complete a test booking transaction and check that revenue updates accurately.
+
+
+5. **Hour 7: Demo Data, Testing & Bug Fixes:** Quality Assurance.
+* Create XML demo data files (`demo/booking_demo.xml`) to pre-populate sample slots and customers on module installation.
+* Perform end-to-end testing of the booking workflow and concurrency checks.
+* Resolve any traceback or manifest loading errors.
+* *Verification:* Install the module with demo data enabled and verify pre-existing records load correctly.
+
+
+6. **Hour 8: GitHub Push & Demo Preparation:** Final Polish.
+* Clean up temporary files, stage all changes, and push your completed module to your GitHub repository (`resbook`).
+* Prepare a quick run-through script or demo flow showcasing slot creation, customer booking, double-booking prevention, and revenue tracking.
+* *Verification:* Verify code is safely backed up on GitHub and ready for presentation.
+
+141026
 
 have 3.12 py venv
 py -3.12 -m venv .venv
@@ -6,5 +47,33 @@ py -3.12 -m venv .venv
 have postgres sql
 
 py essentials - handle data, web req and crypto
-pip install psycopg2-binary lxml num2words pillow psutil pydot pyopenssl pyserial python-dateutil pytz pyusb reportlab requests vobject werkzeug zint
+pip install -r odoo\requirements.txt
+
+151026
+    start pg
+    "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres
+
+    CREATE USER odoo WITH CREATEDB PASSWORD '1234';
+
+    verify by seeing list of user by using \du
+
+    postgres=# ALTER USER odoo WITH PASSWORD '1234';
+    ALTER ROLE
+
+    db creation
+    CREATE DATABASE resbook_db WITH TEMPLATE template0 LC_COLLATE = 'C' LC_CTYPE = 'C';
+
+    db deletion
+    DROP DATABASE resbook_db;
+
+    grant permission
+    GRANT ALL ON SCHEMA public TO odoo;
+    ALTER SCHEMA public OWNER TO odoo;
+
+to start odoo and connect to postgres
+python odoo\odoo-bin --addons-path="odoo\addons,custom_addons" -d resbook_db --db_user=odoo --db_password=1234 
+-i base
+
+note - use i base flag until db dont have table 
+
 
