@@ -79,6 +79,13 @@ to start odoo and connect to postgres
     note - use i base flag until db dont have table 
 
     odoo email pwd - admin
-    - after login activate dev mode  
+    - after login activate dev mode 
+
+    have correct version in manifest file
+
+    for odoo ui allowance add file named
+        ir.model.access.csv
+    for ui allowance
+     
 
 

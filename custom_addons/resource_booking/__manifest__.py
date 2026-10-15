@@ -1,11 +1,15 @@
 {
-    'name': 'Resource Booking',
-    'version': '18.0.1.0.0',
-    'summary': 'Manage and book local resources for the MVP',
+    'name': 'Resource Booking MVP',
+    'version': '20.0.1.0.0',
+    'summary': 'POC Manage and book local resources',
     'category': 'Services',
-    'author': 'Hackathon Team',
+    'author': 'jxlee',
+    'license': 'LGPL-3',
     'depends': ['base'],
-    'data': [],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/resource_views.xml',
+    ],
     'installable': True,
     'application': True,
 }
