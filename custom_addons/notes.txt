@@ -74,9 +74,12 @@ pip install -r odoo\requirements.txt
 
 to start odoo and connect to postgres
     python odoo\odoo-bin --addons-path="odoo\addons,custom_addons" -d resbook_db --db_user=odoo --db_password=1234 
-    -i base
+        
+        -i base
+    note - use i base flag until db dont have table
 
-    note - use i base flag until db dont have table 
+    otherwise every time use
+        -u resource_booking
 
     odoo email pwd - admin
     - after login activate dev mode 
@@ -86,6 +89,8 @@ to start odoo and connect to postgres
     for odoo ui allowance add file named
         ir.model.access.csv
     for ui allowance
+
+    and add the file to data in manifest
      
 
 
