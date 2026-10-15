@@ -71,9 +71,16 @@ pip install -r odoo\requirements.txt
     ALTER SCHEMA public OWNER TO odoo;
 
 
+generate odoo20.conf file
+    - cd odoo
+    - python odoo-bin -c odoo.conf -s -d resbook_db
+
+    or if you want conf file outside of odoo folder
+    - python odoo\odoo-bin -c odoo.conf -s -d resbook_db
+
 
 to start odoo and connect to postgres
-    python odoo\odoo-bin --addons-path="odoo\addons,custom_addons" -d resbook_db --db_user=odoo --db_password=1234 
+    python odoo\odoo-bin -d resbook_db --db_user=odoo --db_password=1234 
         
         -i base
     note - use i base flag until db dont have table
@@ -91,6 +98,34 @@ to start odoo and connect to postgres
     for ui allowance
 
     and add the file to data in manifest
-     
 
+Configuration File Generation
 
+• In-Root Schema Template Automation: Generated standard parameters array inside the engine's core workspace.batch
+cd odoo
+python odoo-bin -c odoo.conf -s -d resbook_db
+Use code with caution.
+• External Schema Template Automation: Alternatively compiled the parameters schema layer directly out inside the project parent boundary.batch
+python odoo\odoo-bin -c odoo.conf -s -d resbook_db
+Use code with caution.
+
+Service Execution & Initialization
+
+• First-Time Service Boot Sequence: Run structural initialization to dynamically map tables into database environments without raw entries.batch
+python odoo\odoo-bin -c odoo\odoo.conf -d resbook_db --db_user=odoo --db_password=1234 -i base
+Use code with caution.
+• Incremental Module Updates: Switched runtime arguments flag parameter to refresh application layouts after establishing baseline.batch
+python odoo\odoo-bin -c odoo\odoo.conf -d resbook_db -u resource_booking
+Use code with caution.
+• System Portal Credentials: Utilized matching identification combination variables (admin / admin) to reach setup interfaces.
+• Developer Controls Execution: Navigated directly through target module view interfaces to activate extended debugging utilities.
+
+Security & App Architecture Standard
+
+• Security Model Declarations: Defined layout access permissions inside ir.model.access.csv to bypass framework error walls.
+• App Manifest Specifications: Linked the newly constructed CSV path directly into the layout description file's structural array data block.python
+'data': [
+    'security/ir.model.access.csv',
+],
+Use code with caution.
+Would you like me to generate the complete ir.model.access.csv template or build the Python structure for your resource_booking backend model next?

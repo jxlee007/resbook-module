@@ -25,6 +25,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+odoo/
 
 # PyInstaller
 #   Usually these files are written by a python script from a template
@@ -220,3 +221,51 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Dependencies (Never commit these, download fresh via npm/yarn install)
+node_modules/
+jspm_packages/
+web_modules/
+
+# Environment variables and secrets (Contains API keys and passwords)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Build and Production outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# Testing and Coverage
+coverage/
+*.lcov
+.nyc_output
+
+# IDE and System files (Optional but recommended)
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

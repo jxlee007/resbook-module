@@ -7,7 +7,7 @@
     'license': 'LGPL-3',
     'depends': ['base'],
     'data': [
-        'security/ir.model.access.csv',
+        'security/ir.access.csv',
         'views/resource_views.xml',
     ],
     'installable': True,
