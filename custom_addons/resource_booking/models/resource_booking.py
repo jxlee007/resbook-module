@@ -19,7 +19,7 @@ class ResourceBooking(models.Model):
         ('draft', 'Draft'),
         ('confirmed', 'Confirmed'),
         ('cancelled', 'Cancelled'),
-    ], default='draft', required=True)
+    ], default='draft', required=True, group_expand=True)
 
     @api.constrains('slot_id')
     def _check_slot_available(self):
