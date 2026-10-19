@@ -10,6 +10,7 @@ class ResourceBooking(models.Model):
     slot_id = fields.Many2one('resource.booking.slot', required=True, string='Booking Slot')
     customer_id = fields.Many2one('res.partner', required=True, string='Customer')
     name = fields.Char(string='Booking Name', required=True)
+    description = fields.Text(string='Description')
     start_date = fields.Datetime(related='slot_id.start_datetime', readonly=True)
     end_date = fields.Datetime(related='slot_id.end_datetime', readonly=True)
     

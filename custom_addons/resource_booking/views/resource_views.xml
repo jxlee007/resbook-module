@@ -46,11 +46,47 @@
         </field>
     </record>
 
+    <!-- Kanban View -->
+    <record id="view_resource_booking_kanban" model="ir.ui.view">
+        <field name="name">resource.booking.kanban</field>
+        <field name="model">resource.booking</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <!-- 🏷️ Booking Name -->
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    <!-- 👤 Customer -->
+                                    <field name="customer_id"/>
+                                </div>
+                                <div>
+                                    <!-- ⏰ Slot Timing -->
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <!-- Action Window -->
     <record id="action_resource_booking" model="ir.actions.act_window">
         <field name="name">Resource Bookings</field>
         <field name="res_model">resource.booking</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first resource booking!
+            </p>
+        </field>
     </record>
 
     <!-- Root Menu with Action Assigned -->

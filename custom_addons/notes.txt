@@ -1,43 +1,42 @@
-Here is the complete step-by-step task list for building your **Resource Booking MVP** for the Odoo Flux 2026 hackathon, broken down into manageable milestones:
+**✅ COMPLETED:**
 
-1. **Hour 1: Environment Setup & Module Scaffold:** Prerequisites & Initialization.
-* Install Python 3.12, PostgreSQL, and Odoo 18 core dependencies via `pip`.
-* Clone your forked repository and verify the folder structure (`odoo` core + `custom_addons/resource_booking`).
-* Complete and verify `__manifest__.py` and `__init__.py` configuration files.
-* *Verification:* Run Odoo and check that `http://localhost:8069` loads successfully.
+- ✅ **Hour 1:** Environment setup (Python 3.12 + PostgreSQL installed, Odoo running on localhost:8069)
+- ✅ **Hour 2-3:** Models (`booking_slot.py`, `resource_booking.py` with Many2one relationships)
+- ✅ **Hour 3:** Utils helper (`check_overlap()` pure function)
+- ✅ **Hour 4:** Security CSV (`ir.access.csv`)
 
+---
 
-2. **Hours 2–3: Python Models & Relationships:** Backend Logic.
-* Finalize `resource.booking.slot` model with datetime fields, pricing, and state selection.
-* Create the `resource.booking` model linked to native `res.partner` (customers) and slots using Many2one relationships.
-* Implement database-level uniqueness constraints and Python validation to prevent double-booking safely under concurrent requests.
-* *Verification:* Create sample booking slot records directly from the Python shell or Odoo UI.
+**🟡 INCOMPLETE/NEED REVIEW:**
 
+| Task | Status | Action |
+|------|--------|--------|
+| **Views XML** | Partial | Check if Form + Kanban + List views complete in `resource_views.xml` |
+| **Manifest data array** | Incomplete | Verify `__manifest__.py` includes `'data': ['security/ir.access.csv', 'views/resource_views.xml']` |
+| **Booking workflow** | Pending | Add `action_confirm()` that updates slot state to 'booked' |
+| **Demo data** | MISSING | Create `demo/booking_demo.xml` with 20 slots + 5 bookings |
+| **Tests** | MISSING | Add `tests/test_*.py` (pytest) for overlap logic |
+| **Git commits** | Unknown | Check git log: should have 5+ commits |
 
-3. **Hours 4–5: Views, Menus & Access Rights:** UI & Permissions.
-* Create CSV security access rights (`ir.model.access.csv`) to grant proper permissions for admin and user roles.
-* Build native XML form, list, and Kanban views for both slots and bookings without custom CSS.
-* Define action windows and top-level menus to navigate between slots and bookings.
-* *Verification:* Log into Odoo and interact with the new custom app menus and views.
+---
 
+**REVISED PRIORITY (Next 48 hours):**
 
-4. **Hour 6: Booking Workflow & Revenue Reporting:** Business Intelligence.
-* Implement the booking action workflow (changing slot states from available to booked upon reservation).
-* Add computed fields or list aggregations to display total booking revenue for the admin dashboard.
-* *Verification:* Complete a test booking transaction and check that revenue updates accurately.
+```
+TODAY:
+☐ Fix manifest.py data array (5 min)
+☐ Complete views XML—Form, List, Kanban (1 hour)
+☐ Add booking workflow methods (30 min)
+☐ Create demo/booking_demo.xml (1 hour)
+☐ Test booking workflow manually (30 min)
+☐ Git: 3 clean commits
 
-
-5. **Hour 7: Demo Data, Testing & Bug Fixes:** Quality Assurance.
-* Create XML demo data files (`demo/booking_demo.xml`) to pre-populate sample slots and customers on module installation.
-* Perform end-to-end testing of the booking workflow and concurrency checks.
-* Resolve any traceback or manifest loading errors.
-* *Verification:* Install the module with demo data enabled and verify pre-existing records load correctly.
-
-
-6. **Hour 8: GitHub Push & Demo Preparation:** Final Polish.
-* Clean up temporary files, stage all changes, and push your completed module to your GitHub repository (`resbook`).
-* Prepare a quick run-through script or demo flow showcasing slot creation, customer booking, double-booking prevention, and revenue tracking.
-* *Verification:* Verify code is safely backed up on GitHub and ready for presentation.
+TOMORROW:
+☐ Quick pytest for utils.py (30 min)
+☐ Final test run
+☐ Git final commit
+✅ Done. POC shipped.
+```
 
 141026
 
@@ -65,6 +64,7 @@ pip install -r odoo\requirements.txt
 
     db deletion
     DROP DATABASE resbook_db;
+    DELETE FROM resource_booking;
 
     grant permission
     GRANT ALL ON SCHEMA public TO odoo;
@@ -125,7 +125,10 @@ Security & App Architecture Standard
 • Security Model Declarations: Defined layout access permissions inside ir.model.access.csv to bypass framework error walls.
 • App Manifest Specifications: Linked the newly constructed CSV path directly into the layout description file's structural array data block.python
 'data': [
-    'security/ir.model.access.csv',
+    'security/ir.access.csv',
 ],
-Use code with caution.
-Would you like me to generate the complete ir.model.access.csv template or build the Python structure for your resource_booking backend model next?
+
+
+171026
+- adding the kanban view to xml
+
