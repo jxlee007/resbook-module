@@ -1,12 +1,12 @@
-services:
-  # 🗄️ Database Service Setup
-  - type: db
-    name: odoo20-poc-db
+# 🗄️ Databases section separated from services block
+databases:
+  - name: odoo20-poc-db
     databaseName: resbook_db
     user: odoo
     plan: free
 
-  # 🚀 Odoo Application Runtime
+# 🚀 Services section strictly for application runtimes
+services:
   - type: web
     name: odoo20-resbook-app
     runtime: docker
@@ -26,7 +26,6 @@ services:
         fromDatabase:
           name: odoo20-poc-db
           property: password
-    # Launches Odoo pointing to the clean Linux configuration file
     dockerCommand: >
       odoo
       -c /etc/odoo/odoo.conf
