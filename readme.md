@@ -11,7 +11,7 @@ This module demonstrates internal-user booking of predefined time slots with a b
 | Track bookable time slots and customer bookings in Odoo | `resource.booking.slot` stores time and availability; `resource.booking` links a customer to a slot |
 | Reflect reservation progress | Booking states: `draft`, `confirmed`, `cancelled`; slot states: `available`, `booked` |
 
-## 2. (Architecture)[custom_addons\resource_booking\architecture\readme.md]
+## 2. [Architecture](custom_addons\resource_booking\architecture\readme.md)
 
 | Layer | Components | Responsibility |
 |---|---|---|
