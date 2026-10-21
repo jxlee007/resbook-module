@@ -392,7 +392,7 @@ Here's each answer framed for your `resource_booking` addon on Odoo 20.
 
 ---
 
-## Level 4 — Code Design
+## CD
 
 **13. ONE job per function?**
 Each `action_*` method does exactly one thing: `action_confirm` transitions state + validates the slot; `action_cancel`/`action_draft` only write state. `_check_slot_available` only validates availability. Odoo itself enforces this — a `<button type="object">` maps to exactly one method, and `@api.constrains` methods get wrapped per-field-set in `_constraint_methods` [1](#23-0) .
@@ -406,7 +406,7 @@ Yes — everything on a `models.Model` lives in the "adapter" layer by definitio
 **16. Testable alone?**
 Yes, via `odoo.tests.common.TransactionCase` — you get a real DB with rollback, and test methods directly (`self.env['resource.booking'].create({...})` then assert the `ValidationError` on double-booking). Not pure unit-testable (needs a DB), but each method is isolated behind `env`.
 
-## Level 5 — Code Quality
+## CQ
 
 **17. Pure?**
 No — `action_confirm` mutates state (`self.state = 'confirmed'` → SQL write). Constraints `_check_*` are the closest to pure (read-only, raise-or-nothing). In Odoo, purity matters less than **transactionality** — a raised `ValidationError` inside a constraint rolls back the whole write atomically.
@@ -420,7 +420,7 @@ Partially tight: `model_id:id` values in `ir.access.csv` (`model_resource_bookin
 **20. 2-minute readable?**
 Yes — small file, field names mirror DB columns, `action_*` naming follows Odoo convention (button name = method name). Gap: no docstrings/comments on `_check_slot_available` explaining *why* a two-phase slot check is needed — add a 1-liner.
 
-## Level 6 — Database Design
+## DD
 
 **21. Normalized?**
 Yes — after the split, `resource_booking` stores only `slot_id`/`customer_id` FKs; times live once on `resource_booking_slot`. No duplicated datetime columns on both tables.
@@ -434,7 +434,7 @@ Yes — every `Many2one` emits a real Postgres FK automatically; `required=True`
 **24. N+1?**
 No — the ORM prefetches: `self.env.cr.execute`-free recordset iteration batches field fetches; `search_fetch`/`_fetch_query` issue a single SELECT for all requested fields. Relational reads (`booking.slot_id.start_datetime`) hit the in-memory cache/`inselect` batching, not per-record queries. Your overlap `search(..., limit=1)` is one query per record — acceptable inside a constraint; Odoo does exactly this in `hr.attendance._check_validity`.
 
-## Level 7 — API Design
+## AD
 
 **25. Resource-oriented?**
 Your module has no custom REST endpoints — Odoo's generic `/web/dataset/call_kw` + JSON-RPC is the API, and it *is* resource-oriented (`model` + `method` + `args`). If you add endpoints, use `@http.route('/resource_booking/slots', type='json')` style — noun, not verb.
@@ -448,7 +448,7 @@ The RPC layer guarantees it — success → `{"result": ...}`, failure → `{"er
 **28. Errors?**
 Mapped for you: `ValidationError`/`UserError` → 400-ish client-visible dialog; `AccessError` → 403; missing record → `MissingError`; unhandled → 500 + traceback (like your `UndefinedColumn` run). Raise `UserError`, not bare `Exception`, for user-facing failures.
 
-## Level 8 — Communication & Documentation
+## COMDOC
 
 **29. 30-second diagram?**
 ```
