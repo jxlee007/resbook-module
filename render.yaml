@@ -15,10 +15,13 @@ services:
         value: 8069
       - key: ODOO_RC
         value: /etc/odoo/odoo.conf
-      - key: HOST
+      # CRITICAL CORRECTION: Standard Odoo-recognized environment mapping keys
+      - key: ODOO_HOST
         fromDatabase:
           name: odoo20-poc-db
           property: host
+      - key: ODOO_PORT
+        value: 5432
       - key: USER
         fromDatabase:
           name: odoo20-poc-db

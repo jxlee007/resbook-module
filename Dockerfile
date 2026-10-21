@@ -7,5 +7,5 @@ RUN chown -R odoo:odoo /mnt/extra-addons
 
 USER odoo
 
-# CRITICAL FIX: Added --db_port=5432 to route database traffic away from web ports
-ENTRYPOINT ["/entrypoint.sh", "odoo", "--db_port=5432", "-i", "base,resource_booking", "--without-demo=False"]
+# Executes using default environment variables natively
+ENTRYPOINT ["/entrypoint.sh", "odoo", "-i", "base,resource_booking", "--without-demo=False"]
