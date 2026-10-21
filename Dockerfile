@@ -7,5 +7,5 @@ RUN chown -R odoo:odoo /mnt/extra-addons
 
 USER odoo
 
-# Executes using default environment variables natively
-ENTRYPOINT ["/entrypoint.sh", "odoo", "-i", "base,resource_booking", "--without-demo=False"]
+# Use standard configuration execution flags
+CMD ["odoo", "-c", "/etc/odoo/odoo.conf"]
