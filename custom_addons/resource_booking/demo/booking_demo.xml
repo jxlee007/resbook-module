@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="demo_customer_1" model="res.partner">
+        <field name="name">Azure Interior</field>
+    </record>
+    <record id="demo_customer_2" model="res.partner">
+        <field name="name">Tech Solutions Inc</field>
+    </record>
+
+    <record id="demo_slot_01" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_02" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=2)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=2)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_03" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_04" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=4)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=4)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_05" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=5)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=5)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_06" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=6)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=6)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_07" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_08" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=8)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=8)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_09" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=9)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=9)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_10" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=10)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=10)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_11" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=11)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=11)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_12" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=12)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=12)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_13" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=13)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=13)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_14" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=14)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=14)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_15" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=15)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=15)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_16" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=16)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=16)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_17" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=17)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=17)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_18" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=18)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=18)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_19" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=19)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=19)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_20" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=20)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=20)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_21" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=21)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=21)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_22" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=22)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=22)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_23" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=23)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=23)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_24" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=24)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=24)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_25" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=25)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=25)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_26" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=26)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=26)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_27" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=27)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=27)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_28" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=28)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=28)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_29" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=29)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=29)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_30" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=30)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=30)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_31" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=31)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=31)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_32" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=32)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=32)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_33" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=33)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=33)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_34" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=34)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=34)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_35" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=35)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=35)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_36" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=36)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=36)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_37" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=37)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=37)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_38" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=38)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=38)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_39" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=39)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=39)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_40" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=40)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=40)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_41" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=41)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=41)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_42" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=42)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=42)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_43" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=43)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=43)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_44" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=44)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=44)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_45" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=45)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=45)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_46" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=46)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=46)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_47" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=47)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=47)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_48" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=48)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=48)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_49" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=49)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=49)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+    <record id="demo_slot_50" model="resource.booking.slot">
+        <field name="start_datetime" eval="(datetime.now() + timedelta(days=50)).strftime('%Y-%m-%d 09:00:00')"/>
+        <field name="end_datetime" eval="(datetime.now() + timedelta(days=50)).strftime('%Y-%m-%d 10:00:00')"/>
+        <field name="state">available</field>
+    </record>
+
+    <record id="demo_booking_01" model="resource.booking">
+        <field name="name">Demo Booking 1</field>
+        <field name="customer_id" ref="demo_customer_1"/>
+        <field name="slot_id" ref="demo_slot_01"/>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="demo_booking_02" model="resource.booking">
+        <field name="name">Demo Booking 2</field>
+        <field name="customer_id" ref="demo_customer_2"/>
+        <field name="slot_id" ref="demo_slot_02"/>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="demo_booking_03" model="resource.booking">
+        <field name="name">Demo Booking 3</field>
+        <field name="customer_id" ref="demo_customer_1"/>
+        <field name="slot_id" ref="demo_slot_03"/>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="demo_booking_04" model="resource.booking">
+        <field name="name">Demo Booking 4</field>
+        <field name="customer_id" ref="demo_customer_2"/>
+        <field name="slot_id" ref="demo_slot_04"/>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="demo_booking_05" model="resource.booking">
+        <field name="name">Demo Booking 5</field>
+        <field name="customer_id" ref="demo_customer_1"/>
+        <field name="slot_id" ref="demo_slot_05"/>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="demo_booking_06" model="resource.booking">
+        <field name="name">Demo Booking 6</field>
+        <field name="customer_id" ref="demo_customer_2"/>
+        <field name="slot_id" ref="demo_slot_06"/>
+        <field name="state">draft</field>
+    </record>
+    <record id="demo_booking_07" model="resource.booking">
+        <field name="name">Demo Booking 7</field>
+        <field name="customer_id" ref="demo_customer_1"/>
+        <field name="slot_id" ref="demo_slot_07"/>
+        <field name="state">draft</field>
+    </record>
+    <record id="demo_booking_08" model="resource.booking">
+        <field name="name">Demo Booking 8</field>
+        <field name="customer_id" ref="demo_customer_2"/>
+        <field name="slot_id" ref="demo_slot_08"/>
+        <field name="state">cancelled</field>
+    </record>
+    <record id="demo_booking_09" model="resource.booking">
+        <field name="name">Demo Booking 9</field>
+        <field name="customer_id" ref="demo_customer_1"/>
+        <field name="slot_id" ref="demo_slot_09"/>
+        <field name="state">cancelled</field>
+    </record>
+    <record id="demo_booking_10" model="resource.booking">
+        <field name="name">Demo Booking 10</field>
+        <field name="customer_id" ref="demo_customer_2"/>
+        <field name="slot_id" ref="demo_slot_10"/>
+        <field name="state">draft</field>
+    </record>
+
+    <record id="demo_slot_01" model="resource.booking.slot">
+        <field name="state">booked</field>
+    </record>
+    <record id="demo_slot_02" model="resource.booking.slot">
+        <field name="state">booked</field>
+    </record>
+    <record id="demo_slot_03" model="resource.booking.slot">
+        <field name="state">booked</field>
+    </record>
+    <record id="demo_slot_04" model="resource.booking.slot">
+        <field name="state">booked</field>
+    </record>
+    <record id="demo_slot_05" model="resource.booking.slot">
+        <field name="state">booked</field>
+    </record>
+</odoo>

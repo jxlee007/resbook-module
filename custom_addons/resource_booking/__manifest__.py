@@ -10,6 +10,9 @@
         'security/ir.access.csv',
         'views/resource_views.xml',
     ],
+    'demo': [
+        'demo/booking_demo.xml',
+    ],
     'installable': True,
     'application': True,
 }
