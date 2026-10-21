@@ -13,7 +13,6 @@ services:
     plan: free
     dockerfilePath: ./Dockerfile
     envVars:
-      # CRITICAL FIX: Inject the listening port parameter as an environment variable key string
       - key: PORT
         value: 8069
       - key: HOST
@@ -28,11 +27,13 @@ services:
         fromDatabase:
           name: odoo20-poc-db
           property: password
-    dockerCommand: >
-      odoo
-      -c /etc/odoo/odoo.conf
-      --db_host=$HOST
-      --db_user=$USER
-      --db_password=$PASSWORD
-      -i base,resource_booking
-      --without-demo=False
+    # Explicit array format to pass arguments correctly to the Odoo entrypoint
+    dockerCommand: [
+      "odoo",
+      "-c", "/etc/odoo/odoo.conf",
+      "--db_host=$(HOST)",
+      "--db_user=$(USER)",
+      "--db_password=$(PASSWORD)",
+      "-i", "base,resource_booking",
+      "--without-demo=False"
+    ]
