@@ -13,8 +13,7 @@ services:
     envVars:
       - key: PORT
         value: 8069
-      - key: ODOO_RC
-        value: /etc/odoo/odoo.conf
+      # 🗄️ Database Mapping Context
       - key: ODOO_HOST
         fromDatabase:
           name: odoo20-poc-db
@@ -29,3 +28,10 @@ services:
         fromDatabase:
           name: odoo20-poc-db
           property: password
+      # 🔄 Odoo Initialization Parameters Matrix
+      - key: ODOO_DATABASE
+        value: resbook_db
+      - key: ODOO_INIT
+        value: base,resource_booking
+      - key: ODOO_WITHOUT_DEMO
+        value: "False"

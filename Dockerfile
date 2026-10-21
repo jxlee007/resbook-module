@@ -7,5 +7,5 @@ RUN chown -R odoo:odoo /mnt/extra-addons
 
 USER odoo
 
-# Use standard configuration execution flags
-CMD ["odoo", "-c", "/etc/odoo/odoo.conf"]
+# Use clean execution flags without pointing to a config file path
+CMD ["odoo"]
