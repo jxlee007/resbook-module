@@ -132,3 +132,7 @@ Security & App Architecture Standard
 171026
 - adding the kanban view to xml
 
+211026
+- added demo data
+- for demo data drop db and craete new one with permissions
+- python odoo\odoo-bin -d resbook_db --db_user=odoo --db_password=1234 -i base,resource_booking --without-demo=False  
