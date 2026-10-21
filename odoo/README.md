@@ -1,37 +1,68 @@
-# Odoo
+# Resbook module: Odoo POC
 
-[![Build Status](https://runbot.odoo.com/runbot/badge/flat/1/master.svg)](https://runbot.odoo.com/runbot)
-[![Tech Doc](https://img.shields.io/badge/master-docs-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/documentation/master)
-[![Help](https://img.shields.io/badge/master-help-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/forum/help-1)
-[![Nightly Builds](https://img.shields.io/badge/master-nightly-875A7B.svg?style=flat&colorA=8F8F8F)](https://nightly.odoo.com/)
+## Resource Booking MVP
 
-Odoo is a suite of web based open source business apps.
+This module demonstrates internal-user booking of predefined time slots with a basic availability check and booking-state workflow.
 
-The main Odoo Apps include an [Open Source CRM](https://www.odoo.com/page/crm),
-[Website Builder](https://www.odoo.com/app/website),
-[eCommerce](https://www.odoo.com/app/ecommerce),
-[Warehouse Management](https://www.odoo.com/app/inventory),
-[Project Management](https://www.odoo.com/app/project),
-[Billing &amp; Accounting](https://www.odoo.com/app/accounting),
-[Point of Sale](https://www.odoo.com/app/point-of-sale-shop),
-[Human Resources](https://www.odoo.com/app/employees),
-[Marketing](https://www.odoo.com/app/social-marketing),
-[Manufacturing](https://www.odoo.com/app/manufacturing),
-[...](https://www.odoo.com/)
+## 1. What problem does this solve?
 
-Odoo Apps can be used as stand-alone applications, but they also integrate seamlessly so you get
-a full-featured [Open Source ERP](https://www.odoo.com) when you install several Apps.
+| Problem | Implementation |
+|---|---|
+| Track bookable time slots and customer bookings in Odoo | `resource.booking.slot` stores time and availability; `resource.booking` links a customer to a slot |
+| Reflect reservation progress | Booking states: `draft`, `confirmed`, `cancelled`; slot states: `available`, `booked` |
 
-## Getting started with Odoo
+## 2. [Architecture](https://github.com/jxlee007/resbook-module/blob/20.0/custom_addons/resource_booking/architecture/readme.md)
 
-For a standard installation please follow the [Setup instructions](https://www.odoo.com/documentation/master/administration/install/install.html)
-from the documentation.
+| Layer | Components | Responsibility |
+|---|---|---|
+| UI | Form, list, Kanban views; menus | Create and review slots and bookings |
+| ORM | `resource.booking`, `resource.booking.slot` | Persist records and expose workflow actions |
+| Validation | `_check_slot_available` | Reject a booking whose selected slot is not available |
+| Access | `ir.access.csv` | Grant internal users CRUD access |
+| Demo | `demo/booking_demo.xml` | Seed customers, 50 slots, and 10 bookings when demo data loads |
 
-To learn the software, we recommend the [Odoo eLearning](https://www.odoo.com/slides),
-or [Scale-up, the business game](https://www.odoo.com/page/scale-up-business-game).
-Developers can start with [the developer tutorials](https://www.odoo.com/documentation/master/developer/howtos.html).
+| Workflow step | Result |
+|---|---|
+| Create slot | Slot starts `available` |
+| Create booking | Booking references an available slot |
+| Confirm booking | Booking becomes `confirmed`; slot becomes `booked` |
+| Cancel booking | Booking becomes `cancelled`; slot becomes `available` |
+| Return to draft | Booking becomes `draft` |
 
-## Security
+## 3. Key files & their jobs
 
-If you believe you have found a security issue, check our [Responsible Disclosure page](https://www.odoo.com/security-report)
-for details and get in touch with us via email.
+| File | Job |
+|---|---|
+| `__manifest__.py` | Declares `base`, access/views data, and demo data |
+| `models/booking_slot.py` | Defines slot times and availability state |
+| `models/resource_booking.py` | Defines bookings, related slot times, validation, and workflow actions |
+| `models/utils.py` | Defines an overlap helper; booking validation does not currently call it |
+| `security/ir.access.csv` | Grants internal users CRUD access to both models |
+| `views/resource_views.xml` | Defines booking/slot forms, lists, Kanban, actions, and menus |
+| `demo/booking_demo.xml` | Creates demo customers, slots, and bookings |
+
+## 4. How to run/test it
+
+| Task | Command or condition |
+|---|---|
+| Upgrade an installed module | `python odoo\odoo-bin -c odoo\odoo.conf -d resbook_db -u resource_booking` |
+| Install and load demo data | `python odoo\odoo-bin -c odoo\odoo.conf -d resbook_db -i resource_booking` with demo data enabled |
+| Automated tests | `custom_addons/resource_booking/tests/test_utils.py` is currently empty; no module tests are defined |
+
+## 5. Known limitations
+
+| Limitation | Impact |
+|---|---|
+| Availability validation checks slot state at booking write time | No database-level locking or uniqueness constraint prevents concurrent double-booking |
+| `check_overlap` is not used | Overlapping slot times are not rejected |
+| No resource, pricing, payment, or revenue models | Slots are standalone time windows |
+| Access rules target `base.group_user` | Portal/public customer self-service is not implemented |
+| Demo records load on install with demo data enabled | A normal module upgrade does not seed demo records |
+
+## How to use
+
+- Install the `resource_booking` module with demo data enabled to load sample records.
+- Open **Resource Booking → Bookings** to create or manage bookings.
+- Open **Resource Booking → Booking Slots** to manage available time slots.
+- Confirm or cancel a booking with its form actions.
+- Run the upgrade command after changing module code or views.
