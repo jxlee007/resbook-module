@@ -10,16 +10,17 @@ services:
     runtime: docker
     plan: free
     dockerfilePath: ./Dockerfile
+    healthCheckPath: /web/login
     envVars:
       - key: PORT
-        value: 8069
+        value: "10000"
       # 🗄️ Database Mapping Context
-      - key: ODOO_HOST
+      - key: HOST
         fromDatabase:
           name: odoo20-poc-db
           property: host
-      - key: ODOO_PORT
-        value: 5432
+      - key: PGPORT
+        value: "5432"
       - key: USER
         fromDatabase:
           name: odoo20-poc-db
@@ -35,3 +36,5 @@ services:
         value: base,resource_booking
       - key: ODOO_WITHOUT_DEMO
         value: "False"
+      - key: ODOO_ADMIN_PASSWD
+        sync: false
