@@ -11,9 +11,11 @@ services:
     name: odoo20-resbook-app
     runtime: docker
     plan: free
-    port: 8069
     dockerfilePath: ./Dockerfile
     envVars:
+      # CRITICAL FIX: Inject the listening port parameter as an environment variable key string
+      - key: PORT
+        value: 8069
       - key: HOST
         fromDatabase:
           name: odoo20-poc-db
