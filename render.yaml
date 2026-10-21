@@ -1,11 +1,9 @@
-# 🗄️ Databases section separated from services block
 databases:
   - name: odoo20-poc-db
     databaseName: resbook_db
     user: odoo
     plan: free
 
-# 🚀 Services section strictly for application runtimes
 services:
   - type: web
     name: odoo20-resbook-app
@@ -15,6 +13,9 @@ services:
     envVars:
       - key: PORT
         value: 8069
+      # Odoo official container recognizes these variable strings automatically
+      - key: ODOO_RC
+        value: /etc/odoo/odoo.conf
       - key: HOST
         fromDatabase:
           name: odoo20-poc-db
@@ -27,13 +28,3 @@ services:
         fromDatabase:
           name: odoo20-poc-db
           property: password
-    # Explicit array format to pass arguments correctly to the Odoo entrypoint
-    dockerCommand: [
-      "odoo",
-      "-c", "/etc/odoo/odoo.conf",
-      "--db_host=$(HOST)",
-      "--db_user=$(USER)",
-      "--db_password=$(PASSWORD)",
-      "-i", "base,resource_booking",
-      "--without-demo=False"
-    ]
